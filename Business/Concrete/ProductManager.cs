@@ -41,5 +41,10 @@ namespace Business.Concrete
         {
             return _productDal.GetById(id);
         }
+
+        public List<Product> GetProductsListWithCategory()
+        {
+            return _productDal.GetProductListWihtCategory();
+        }
     }
 }

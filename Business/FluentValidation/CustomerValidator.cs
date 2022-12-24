@@ -13,7 +13,7 @@ namespace Business.FluentValidation
         public CustomerValidator()
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("İsin boş geçilemez!");
-            RuleFor(x => x.Name).Length(3).WithMessage("Şehir adı 3 karakterden az olamaz!");
+            RuleFor(x => x.Name).MinimumLength(3).WithMessage("Şehir adı 3 karakterden az olamaz!");
             RuleFor(x => x.City).NotEmpty().WithMessage("Şehir adı boş geçilemez!");
         }
     }

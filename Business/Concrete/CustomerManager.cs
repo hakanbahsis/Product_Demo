@@ -42,5 +42,10 @@ namespace Business.Concrete
         {
             return _customerDal.GetById(id);
         }
+
+        public List<Customer> GetCustomersListWithJob()
+        {
+            return _customerDal.GetCustomerListWihtJob();
+        }
     }
 }

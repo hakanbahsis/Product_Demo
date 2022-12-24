@@ -9,6 +9,6 @@ namespace DataAccess.Abstract
 {
     public interface ICustomerDAL:IGenericDAL<Customer>
     {
-       
+        List<Customer> GetCustomerListWihtJob();
     }
 }
