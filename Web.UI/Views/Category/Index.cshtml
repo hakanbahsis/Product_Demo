@@ -5,9 +5,10 @@
     Layout = "~/Views/Shared/_UILayout.cshtml";
 }
 
-
 <h1>Kategori Listesi</h1>
-<table class="table table-bordered">
+
+<a href="/Category/AddCategory/" class="btn btn-outline-primary">Yeni Kategori Kaydet</a>
+<table class="table table-bordered table-striped table-hover">
     <tr>
         <th>Kategori Id</th>
         <th>Kategori Adı</th>
@@ -23,9 +24,6 @@
                 <a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-outline-success">Güncelle</a>
             </td>
         </tr>
-
-
     }
 
 </table>
-<a href="/Category/AddCategory/" class="btn btn-outline-primary">Yeni Kategori Kaydet</a>
