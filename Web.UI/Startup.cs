@@ -8,8 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataAccess.Concrete.Context;
 using Entitiy.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Web.UI.Models;
 
 namespace Web.UI
 {
@@ -25,8 +27,8 @@ namespace Web.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DbContext>();
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<DbContext>();
+            services.AddDbContext<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
             services.AddControllersWithViews();
         }
 
