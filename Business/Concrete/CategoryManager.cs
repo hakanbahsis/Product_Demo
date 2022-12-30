@@ -9,7 +9,7 @@ using Entitiy.Concrete;
 
 namespace Business.Concrete
 {
-    public class CategoryManager:ICategoryService
+    public class CategoryManager:IGenericService<Category>
     {
         private ICategoryDAL _categoryDal;
 

@@ -10,6 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Concrete.Context;
 using Entitiy.Concrete;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Web.UI.Models;
 
@@ -30,6 +32,17 @@ namespace Web.UI
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
             services.AddControllersWithViews();
+            services.AddMvc(
+                config =>
+                {
+                    var policiy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                    config.Filters.Add(new AuthorizeFilter(policiy));
+                });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Login/Index";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +60,7 @@ namespace Web.UI
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();

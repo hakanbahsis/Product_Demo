@@ -9,7 +9,7 @@ using Entitiy.Concrete;
 
 namespace Business.Concrete
 {
-    public class ProductManager:IProductService
+    public class ProductManager:IGenericService<Product>
     {
         private IProductDAL _productDal;
         public ProductManager(IProductDAL productDal)

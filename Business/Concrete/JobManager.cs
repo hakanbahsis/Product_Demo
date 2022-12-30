@@ -10,7 +10,7 @@ using Entitiy.Concrete;
 
 namespace Business.Concrete
 {
-    public class JobManager:IJobService
+    public class JobManager:IGenericService<Job>
     {
         private IJobDAL _jobDal;
 

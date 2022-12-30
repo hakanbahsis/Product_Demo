@@ -1,8 +1,24 @@
-﻿
+﻿@model Web.UI.Models.UserEditViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UILayout.cshtml";
 }
 
 <h1>Kullanıcı İşlemler</h1>
+<form method="post">
+    @Html.Label("Adınız")
+    <input type="text" asp-for="Name" class="form-control"/>
+    @Html.Label("Soyadınız")
+    <input type="text" asp-for="SurName" class="form-control"/>
+    @Html.Label("Mail adresiniz")
+    <input type="text" asp-for="Mail" class="form-control"/>
+    @Html.Label("Cinsiyet")
+    <input type="text" asp-for="Gender" class="form-control"/>
+    @Html.Label("Şifre")
+    <input type="text" asp-for="Password" class="form-control"/>
+    @Html.Label("Şifre tekrar")
+    <input type="text" asp-for="ConfirmPassword" class="form-control"/>
+    <br/>
+    <button class="btn btn-warning">Değişiklikleri Kaydet</button>
+</form>
 
